@@ -1,0 +1,488 @@
+:root {
+    /* Marketiva Inspired Palette */
+    --primary-color: #383060;
+    /* Deep Indigo for Footer & Headings */
+    --secondary-color: #5A4CAD;
+    /* Purple for Buttons/Interactives */
+    --accent-color: #FF8BA7;
+    /* Soft Pink for highlights */
+    --text-color: #4A4A68;
+    /* Grey-Purple for body text */
+    --light-bg: #FDF9FB;
+    /* Very subtle pinkish-white */
+    --white: #ffffff;
+    --whatsapp-green: #25D366;
+    /* Keep standard WA color or blend it? Keeping standard for brand recognition */
+
+    /* Pastel card backgrounds */
+    --card-bg-pink: #FFF0F5;
+    --card-bg-purple: #F3F1FF;
+
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 70px 0;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--primary-color);
+    /* Match Footer Color */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: var(--white);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+    /* White text */
+    font-weight: 800;
+    font-size: 1.3rem;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    /* Slightly transparent white */
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Hover & Active State */
+nav a:hover,
+nav a.active {
+    color: var(--accent-color);
+    /* Pink accent */
+}
+
+/* Navbar Link Animation (Underline slide) */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* Changed from dark BG to Light/Gradient BG to match reference */
+    background: linear-gradient(135deg, #FFF5F9 0%, #F3F1FF 100%);
+    color: var(--primary-color);
+    /* Dark text on light BG */
+    text-align: center;
+    padding: 120px 20px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add some decorative bubbles/blobs */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: var(--secondary-color);
+    opacity: 0.05;
+    border-radius: 50%;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(90, 76, 173, 0.3);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* --- Services --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    /* Softer radius */
+    box-shadow: 0 10px 30px rgba(56, 48, 96, 0.03);
+    /* Purple tinted shadow */
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Alternate pastel backgrounds for cards if you want, or just keep them white with colorful icons */
+.service-card:nth-child(odd) .service-icon {
+    background: var(--card-bg-pink);
+    color: #DB5D79;
+}
+
+.service-card:nth-child(even) .service-icon {
+    background: var(--card-bg-purple);
+    color: var(--secondary-color);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(56, 48, 96, 0.08);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* Circle background for icons */
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* --- Social Page / About Page Specifics --- */
+.about-content {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(56, 48, 96, 0.05);
+}
+
+/* --- Gallery Page --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Force 3 columns */
+    gap: 25px;
+}
+
+.gallery-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(56, 48, 96, 0.05);
+    transition: transform 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 2/3;
+    /* Enforce 2:3 format (Portrait) */
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery-caption h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.gallery-caption p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.tiktok-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: var(--card-bg-purple);
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.tiktok-link:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color);
+    /* Deep Indigo */
+    color: var(--white);
+    padding: 40px 0 20px;
+    /* Reduced vertical padding */
+    margin-top: 50px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* Add a sleek accent line at top instead of curves */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+footer h3 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.footer-socials {
+    margin: 10px 0;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    /* Smaller circles */
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.1rem;
+    margin: 0 5px;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-socials a:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+footer p {
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        /* Smaller font for mobile */
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    /* Make Gallery 1 Column on Mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-container ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Fix H2 Title on mobile to be one line */
+    h2 {
+        font-size: 1.5rem;
+        /* Reduced from 2.5rem */
+        margin-bottom: 30px;
+    }
+}
